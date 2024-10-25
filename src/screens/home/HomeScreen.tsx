@@ -19,7 +19,7 @@ export default function HomeScreen() {
   const fetchDashboardData = async () => {
     try {
       const response = await dashboardService.getDashboardData();
-      setData(response.data);
+      setData(response.data.data);
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
     }

@@ -41,15 +41,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   async function signIn(username: string, password: string, rememberMe: boolean) {
     try {
       const response = await loginService.login({ username, password });
-      const { user, access_token } = response.data;
+      const { token } = response.data.data;
+      setUser(response.data.data.user);
 
       if (rememberMe) {
         await AsyncStorage.setItem('@auth:user', JSON.stringify(user));
-        await AsyncStorage.setItem('@auth:token', access_token);
+        await AsyncStorage.setItem('@auth:token', token);
       }
 
-      api.defaults.headers.Authorization = `Bearer ${access_token}`;
-      setUser(user);
+      api.defaults.headers.Authorization = `Bearer ${token}`;
     } catch (error) {
       throw new Error('Authentication failed');
     }

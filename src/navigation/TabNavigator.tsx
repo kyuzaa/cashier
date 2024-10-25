@@ -16,20 +16,22 @@ export default function TabNavigator() {
   const { signOut } = useAuth();
 
   const handleLogout = () => {
-    Alert.alert(
-      "Logout",
-      "Apakah Anda yakin ingin keluar?",
-      [
-        {
-          text: "Batal",
-          style: "cancel"
-        },
-        {
-          text: "Ya",
-          onPress: () => signOut()
-        }
-      ]
-    );
+    console.log("DIPNCT");
+    signOut();
+    // Alert.alert(
+    //   "Logout",
+    //   "Apakah Anda yakin ingin keluar?",
+    //   [
+    //     {
+    //       text: "Batal",
+    //       style: "cancel"
+    //     },
+    //     {
+    //       text: "Ya",
+    //       onPress: () => signOut()
+    //     }
+    //   ]
+    // );
   };
 
   return (
@@ -109,6 +111,7 @@ export default function TabNavigator() {
           },
         }}
         options={{
+          title: 'Logout',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="exit-outline" size={size} color={color} />
           ),

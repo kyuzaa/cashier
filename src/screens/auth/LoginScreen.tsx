@@ -48,7 +48,7 @@ export default function LoginScreen() {
           <Text style={styles.title}>Login</Text>
 
           <CustomInput
-            label="username"
+            label="Username"
             value={username}
             onChangeText={setUsername}
             error={errors.username}
